@@ -24,73 +24,70 @@ install_cli() {
   fi
 }
 
-download_logos_nvidia() {
-  mkdir -p "$PROJECT_DIR/assets/logos/nvidia"
-  mkdir -p "$PROJECT_DIR/assets/logos/salesforce"
-  mkdir -p "$PROJECT_DIR/assets/logos/common"
-  curl -fsSL "$REPO/assets/logos/nvidia/nvidia.png" -o "$PROJECT_DIR/assets/logos/nvidia/nvidia.png"
-  curl -fsSL "$REPO/assets/logos/salesforce/Salesforce.png" -o "$PROJECT_DIR/assets/logos/salesforce/Salesforce.png"
-  download_logos_common
-}
-
-download_logos_disney() {
-  mkdir -p "$PROJECT_DIR/assets/logos/disney"
-  mkdir -p "$PROJECT_DIR/assets/logos/salesforce"
-  mkdir -p "$PROJECT_DIR/assets/logos/common"
-  local D="$PROJECT_DIR/assets/logos/disney"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_34_The-Walt-Disney-Studios1.png" -o "$D/imgi_34_The-Walt-Disney-Studios1.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_35_Walt-Disney-Animation-Studios-Logo.jpg" -o "$D/imgi_35_Walt-Disney-Animation-Studios-Logo.jpg"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_36_Pixar-Logo.jpg" -o "$D/imgi_36_Pixar-Logo.jpg"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_37_MARVEL_STUDIOS_LOGO.jpg" -o "$D/imgi_37_MARVEL_STUDIOS_LOGO.jpg"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_38_1920-lucasfilm-logo.jpg" -o "$D/imgi_38_1920-lucasfilm-logo.jpg"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_39_Disney-Theatrical-Group1.png" -o "$D/imgi_39_Disney-Theatrical-Group1.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_40_20th_century_studios.png" -o "$D/imgi_40_20th_century_studios.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_41_SLP-logo.png" -o "$D/imgi_41_SLP-logo.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_42_200723_20th_01.jpg" -o "$D/imgi_42_200723_20th_01.jpg"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_43_ABCEnt_2018LogoForRelease.png" -o "$D/imgi_43_ABCEnt_2018LogoForRelease.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_44_2018-abc-news-logo-promo-black.png" -o "$D/imgi_44_2018-abc-news-logo-promo-black.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_45_ABC_signature_png.png" -o "$D/imgi_45_ABC_signature_png.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_46_ABC_OTV-HORIZONTAL-STACKED_BW-FLAT_2022.png" -o "$D/imgi_46_ABC_OTV-HORIZONTAL-STACKED_BW-FLAT_2022.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_47_Disney-Branded-Television_horizontal.png" -o "$D/imgi_47_Disney-Branded-Television_horizontal.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_48_Freeform_Wordmark_RGB_Electric-Pink91.png" -o "$D/imgi_48_Freeform_Wordmark_RGB_Electric-Pink91.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_49_FX-Logo-.png" -o "$D/imgi_49_FX-Logo-.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_50_HuluOriginals_800px.png" -o "$D/imgi_50_HuluOriginals_800px.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_51_NG_logo_black.png" -o "$D/imgi_51_NG_logo_black.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_52_D_Blue-Logo.png" -o "$D/imgi_52_D_Blue-Logo.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_53_hulu-logo.png" -o "$D/imgi_53_hulu-logo.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_54_Hotstar-reverse-logo.jpg" -o "$D/imgi_54_Hotstar-reverse-logo.jpg"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_55_Disney-Music-Group1.png" -o "$D/imgi_55_Disney-Music-Group1.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_56_ESPN-Logo.jpg" -o "$D/imgi_56_ESPN-Logo.jpg"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_57_ESPN_PLUS_LOGO-1.png" -o "$D/imgi_57_ESPN_PLUS_LOGO-1.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_58_Disneyland-Logo.jpg" -o "$D/imgi_58_Disneyland-Logo.jpg"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_59_Walt-Disney-World.png" -o "$D/imgi_59_Walt-Disney-World.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_60_Shanghai-Disney-Resort-Logo1.jpg" -o "$D/imgi_60_Shanghai-Disney-Resort-Logo1.jpg"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_61_Disneyland-Paris-Logo-Jan-2026.png" -o "$D/imgi_61_Disneyland-Paris-Logo-Jan-2026.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_62_Tokyo-Disney-Resort-Logo.jpg" -o "$D/imgi_62_Tokyo-Disney-Resort-Logo.jpg"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_63_Hong-Kong-Disneyland-Logo.jpg" -o "$D/imgi_63_Hong-Kong-Disneyland-Logo.jpg"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_64_DCL_logo_vert_BLUE_Crop.png" -o "$D/imgi_64_DCL_logo_vert_BLUE_Crop.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_65_Disney-Vacation-Club.png" -o "$D/imgi_65_Disney-Vacation-Club.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_66_Aulani-Logo.jpg" -o "$D/imgi_66_Aulani-Logo.jpg"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_67_AdventuresbyDisney.png" -o "$D/imgi_67_AdventuresbyDisney.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_68_WDI_Logo.png" -o "$D/imgi_68_WDI_Logo.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_69_Disney-Publishing-Worldwide-041.png" -o "$D/imgi_69_Disney-Publishing-Worldwide-041.png"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_70_CPC-Disney-store_shopDisney_Logo-Blue_2019_10_15.jpg" -o "$D/imgi_70_CPC-Disney-store_shopDisney_Logo-Blue_2019_10_15.jpg"
-  curl -fsSL "$REPO/assets/logos/disney/imgi_71_ot_company_logo.png" -o "$D/imgi_71_ot_company_logo.png"
-  curl -fsSL "$REPO/assets/logos/disney/MickeyMouse.png" -o "$D/MickeyMouse.png"
-  curl -fsSL "$REPO/assets/logos/disney/The%20Walt%20Disney%20Company.svg" -o "$D/The Walt Disney Company.svg"
-  curl -fsSL "$REPO/assets/logos/salesforce/Salesforce.png" -o "$PROJECT_DIR/assets/logos/salesforce/Salesforce.png"
-  download_logos_common
-}
-
-download_logos_common() {
+download_common() {
   local C="$PROJECT_DIR/assets/logos/common"
-  curl -fsSL "$REPO/assets/logos/aws.png" -o "$C/aws.png"
-  curl -fsSL "$REPO/assets/logos/Slack.png" -o "$C/Slack.png"
-  curl -fsSL "$REPO/assets/logos/mulesoft.png" -o "$C/mulesoft.png"
-  curl -fsSL "$REPO/assets/logos/claude.svg" -o "$C/claude.svg"
-  curl -fsSL "$REPO/assets/logos/cursor.webp" -o "$C/cursor.webp"
-  curl -fsSL "$REPO/assets/logos/ChatGPT.png" -o "$C/ChatGPT.png"
-  curl -fsSL "$REPO/assets/logos/GCP small.avif" -o "$C/GCP small.avif"
+  mkdir -p "$C"
+  curl -fsSL "$REPO/assets/aws.png" -o "$C/aws.png"
+  curl -fsSL "$REPO/assets/Slack.png" -o "$C/Slack.png"
+  curl -fsSL "$REPO/assets/mulesoft.png" -o "$C/mulesoft.png"
+  curl -fsSL "$REPO/assets/claude.svg" -o "$C/claude.svg"
+  curl -fsSL "$REPO/assets/cursor.webp" -o "$C/cursor.webp"
+  curl -fsSL "$REPO/assets/ChatGPT.png" -o "$C/ChatGPT.png"
+  curl -fsSL "$REPO/assets/GCP%20small.avif" -o "$C/GCP small.avif"
+  mkdir -p "$PROJECT_DIR/assets/logos/salesforce"
+  curl -fsSL "$REPO/assets/salesforce/Salesforce.png" -o "$PROJECT_DIR/assets/logos/salesforce/Salesforce.png"
+}
+
+download_nvidia() {
+  mkdir -p "$PROJECT_DIR/assets/logos/nvidia"
+  curl -fsSL "$REPO/assets/nvidia/nvidia.png" -o "$PROJECT_DIR/assets/logos/nvidia/nvidia.png"
+  download_common
+}
+
+download_disney() {
+  local D="$PROJECT_DIR/assets/logos/disney"
+  mkdir -p "$D"
+  curl -fsSL "$REPO/assets/disney/imgi_34_The-Walt-Disney-Studios1.png" -o "$D/imgi_34_The-Walt-Disney-Studios1.png"
+  curl -fsSL "$REPO/assets/disney/imgi_35_Walt-Disney-Animation-Studios-Logo.jpg" -o "$D/imgi_35_Walt-Disney-Animation-Studios-Logo.jpg"
+  curl -fsSL "$REPO/assets/disney/imgi_36_Pixar-Logo.jpg" -o "$D/imgi_36_Pixar-Logo.jpg"
+  curl -fsSL "$REPO/assets/disney/imgi_37_MARVEL_STUDIOS_LOGO.jpg" -o "$D/imgi_37_MARVEL_STUDIOS_LOGO.jpg"
+  curl -fsSL "$REPO/assets/disney/imgi_38_1920-lucasfilm-logo.jpg" -o "$D/imgi_38_1920-lucasfilm-logo.jpg"
+  curl -fsSL "$REPO/assets/disney/imgi_39_Disney-Theatrical-Group1.png" -o "$D/imgi_39_Disney-Theatrical-Group1.png"
+  curl -fsSL "$REPO/assets/disney/imgi_40_20th_century_studios.png" -o "$D/imgi_40_20th_century_studios.png"
+  curl -fsSL "$REPO/assets/disney/imgi_41_SLP-logo.png" -o "$D/imgi_41_SLP-logo.png"
+  curl -fsSL "$REPO/assets/disney/imgi_42_200723_20th_01.jpg" -o "$D/imgi_42_200723_20th_01.jpg"
+  curl -fsSL "$REPO/assets/disney/imgi_43_ABCEnt_2018LogoForRelease.png" -o "$D/imgi_43_ABCEnt_2018LogoForRelease.png"
+  curl -fsSL "$REPO/assets/disney/imgi_44_2018-abc-news-logo-promo-black.png" -o "$D/imgi_44_2018-abc-news-logo-promo-black.png"
+  curl -fsSL "$REPO/assets/disney/imgi_45_ABC_signature_png.png" -o "$D/imgi_45_ABC_signature_png.png"
+  curl -fsSL "$REPO/assets/disney/imgi_46_ABC_OTV-HORIZONTAL-STACKED_BW-FLAT_2022.png" -o "$D/imgi_46_ABC_OTV-HORIZONTAL-STACKED_BW-FLAT_2022.png"
+  curl -fsSL "$REPO/assets/disney/imgi_47_Disney-Branded-Television_horizontal.png" -o "$D/imgi_47_Disney-Branded-Television_horizontal.png"
+  curl -fsSL "$REPO/assets/disney/imgi_48_Freeform_Wordmark_RGB_Electric-Pink91.png" -o "$D/imgi_48_Freeform_Wordmark_RGB_Electric-Pink91.png"
+  curl -fsSL "$REPO/assets/disney/imgi_49_FX-Logo-.png" -o "$D/imgi_49_FX-Logo-.png"
+  curl -fsSL "$REPO/assets/disney/imgi_50_HuluOriginals_800px.png" -o "$D/imgi_50_HuluOriginals_800px.png"
+  curl -fsSL "$REPO/assets/disney/imgi_51_NG_logo_black.png" -o "$D/imgi_51_NG_logo_black.png"
+  curl -fsSL "$REPO/assets/disney/imgi_52_D_Blue-Logo.png" -o "$D/imgi_52_D_Blue-Logo.png"
+  curl -fsSL "$REPO/assets/disney/imgi_53_hulu-logo.png" -o "$D/imgi_53_hulu-logo.png"
+  curl -fsSL "$REPO/assets/disney/imgi_54_Hotstar-reverse-logo.jpg" -o "$D/imgi_54_Hotstar-reverse-logo.jpg"
+  curl -fsSL "$REPO/assets/disney/imgi_55_Disney-Music-Group1.png" -o "$D/imgi_55_Disney-Music-Group1.png"
+  curl -fsSL "$REPO/assets/disney/imgi_56_ESPN-Logo.jpg" -o "$D/imgi_56_ESPN-Logo.jpg"
+  curl -fsSL "$REPO/assets/disney/imgi_57_ESPN_PLUS_LOGO-1.png" -o "$D/imgi_57_ESPN_PLUS_LOGO-1.png"
+  curl -fsSL "$REPO/assets/disney/imgi_58_Disneyland-Logo.jpg" -o "$D/imgi_58_Disneyland-Logo.jpg"
+  curl -fsSL "$REPO/assets/disney/imgi_59_Walt-Disney-World.png" -o "$D/imgi_59_Walt-Disney-World.png"
+  curl -fsSL "$REPO/assets/disney/imgi_60_Shanghai-Disney-Resort-Logo1.jpg" -o "$D/imgi_60_Shanghai-Disney-Resort-Logo1.jpg"
+  curl -fsSL "$REPO/assets/disney/imgi_61_Disneyland-Paris-Logo-Jan-2026.png" -o "$D/imgi_61_Disneyland-Paris-Logo-Jan-2026.png"
+  curl -fsSL "$REPO/assets/disney/imgi_62_Tokyo-Disney-Resort-Logo.jpg" -o "$D/imgi_62_Tokyo-Disney-Resort-Logo.jpg"
+  curl -fsSL "$REPO/assets/disney/imgi_63_Hong-Kong-Disneyland-Logo.jpg" -o "$D/imgi_63_Hong-Kong-Disneyland-Logo.jpg"
+  curl -fsSL "$REPO/assets/disney/imgi_64_DCL_logo_vert_BLUE_Crop.png" -o "$D/imgi_64_DCL_logo_vert_BLUE_Crop.png"
+  curl -fsSL "$REPO/assets/disney/imgi_65_Disney-Vacation-Club.png" -o "$D/imgi_65_Disney-Vacation-Club.png"
+  curl -fsSL "$REPO/assets/disney/imgi_66_Aulani-Logo.jpg" -o "$D/imgi_66_Aulani-Logo.jpg"
+  curl -fsSL "$REPO/assets/disney/imgi_67_AdventuresbyDisney.png" -o "$D/imgi_67_AdventuresbyDisney.png"
+  curl -fsSL "$REPO/assets/disney/imgi_68_WDI_Logo.png" -o "$D/imgi_68_WDI_Logo.png"
+  curl -fsSL "$REPO/assets/disney/imgi_69_Disney-Publishing-Worldwide-041.png" -o "$D/imgi_69_Disney-Publishing-Worldwide-041.png"
+  curl -fsSL "$REPO/assets/disney/imgi_70_CPC-Disney-store_shopDisney_Logo-Blue_2019_10_15.jpg" -o "$D/imgi_70_CPC-Disney-store_shopDisney_Logo-Blue_2019_10_15.jpg"
+  curl -fsSL "$REPO/assets/disney/imgi_71_ot_company_logo.png" -o "$D/imgi_71_ot_company_logo.png"
+  curl -fsSL "$REPO/assets/disney/MickeyMouse.png" -o "$D/MickeyMouse.png"
+  curl -fsSL "$REPO/assets/disney/The%20Walt%20Disney%20Company.svg" -o "$D/The Walt Disney Company.svg"
+  download_common
 }
 
 do_update() {
@@ -110,12 +107,12 @@ do_update() {
   if [ "$TEAM" = "nvidia" ]; then
     curl -fsSL "$REPO/config/commands/nvidia-brand.md" -o "$PROJECT_DIR/.claude/commands/nvidia-brand.md"
     echo "Downloading logos..."
-    download_logos_nvidia
+    download_nvidia
   elif [ "$TEAM" = "disney" ]; then
     curl -fsSL "$REPO/config/commands/disney-brand.md" -o "$PROJECT_DIR/.claude/commands/disney-brand.md"
     curl -fsSL "$REPO/config/commands/disneyplus-brand.md" -o "$PROJECT_DIR/.claude/commands/disneyplus-brand.md"
     echo "Downloading logos..."
-    download_logos_disney
+    download_disney
   fi
 
   echo "Updating CLI..."
