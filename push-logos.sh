@@ -19,8 +19,12 @@ if ! command -v gh &>/dev/null; then
   exit 1
 fi
 
+# Get auth token from gh CLI
+GH_TOKEN=$(gh auth token)
+REMOTE="https://rnutt13:${GH_TOKEN}@github.com/rnutt13/claude-web-design.git"
+
 echo "Cloning repo..."
-gh repo clone rnutt13/claude-web-design "$TEMP_DIR" -- --quiet
+git clone "$REMOTE" "$TEMP_DIR" --quiet
 
 echo "Copying logos..."
 mkdir -p "$TEMP_DIR/assets"
@@ -36,7 +40,7 @@ if git diff --cached --quiet; then
   echo "No changes — logos are already up to date."
 else
   git commit -m "Add logo assets"
-  gh repo sync --source .
+  git push
   echo "Done. Logos uploaded to GitHub."
 fi
 
