@@ -15,12 +15,13 @@ latest_version() {
 }
 
 install_cli() {
+  TMPBIN=$(mktemp)
+  curl -fsSL "$REPO/bin/claude-wd" -o "$TMPBIN"
+  chmod +x "$TMPBIN"
   if [ -w "/usr/local/bin" ]; then
-    curl -fsSL "$REPO/bin/claude-wd" -o "/usr/local/bin/claude-wd"
-    chmod +x "/usr/local/bin/claude-wd"
+    mv "$TMPBIN" "/usr/local/bin/claude-wd"
   else
-    sudo curl -fsSL "$REPO/bin/claude-wd" -o "/usr/local/bin/claude-wd"
-    sudo chmod +x "/usr/local/bin/claude-wd"
+    sudo mv "$TMPBIN" "/usr/local/bin/claude-wd"
   fi
 }
 
