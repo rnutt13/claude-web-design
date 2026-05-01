@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+set -e
+
+REPO="https://raw.githubusercontent.com/rnutt13/claude-web-design/main"
+PROJECT_DIR="$HOME/Claude Web Design"
+TEAM_FILE="$PROJECT_DIR/.team"
+VERSION_FILE="$PROJECT_DIR/.version"
+
+installed_version() {
+  [ -f "$VERSION_FILE" ] && cat "$VERSION_FILE" || echo "unknown"
+}
+
+latest_version() {
+  curl -fsSL "$REPO/VERSION" 2>/dev/null || echo "unknown"
+}
+
+do_update() {
+  if [ ! -f "$TEAM_FILE" ]; then
+    echo "error: no team file found at $TEAM_FILE"
+    echo "Re-run your original install script to set up from scratch."
+    exit 1
+  fi
+
+  TEAM=$(cat "$TEAM_FILE")
+  echo "Updating claude-web-design config for team: $TEAM"
+
+  # Always update shared files
+  curl -fsSL "$REPO/config/CLAUDE.md" -o "$PROJECT_DIR/CLAUDE.md"
+  curl -fsSL "$REPO/config/commands/salesforce-brand.md" -o "$PROJECT_DIR/.claude/commands/salesforce-brand.md"
+
+  # Update team-specific brand files
+  if [ "$TEAM" = "nvidia" ]; then
+    curl -fsSL "$REPO/config/commands/nvidia-brand.md" -o "$PROJECT_DIR/.claude/commands/nvidia-brand.md"
+  elif [ "$TEAM" = "disney" ]; then
+    curl -fsSL "$REPO/config/commands/disney-brand.md" -o "$PROJECT_DIR/.claude/commands/disney-brand.md"
+    curl -fsSL "$REPO/config/commands/disneyplus-brand.md" -o "$PROJECT_DIR/.claude/commands/disneyplus-brand.md"
+  fi
+
+  # Update the CLI itself
+  curl -fsSL "$REPO/bin/claude-wd" -o "/usr/local/bin/claude-wd"
+  chmod +x "/usr/local/bin/claude-wd"
+
+  # Record new version
+  latest_version > "$VERSION_FILE"
+
+  echo "Done. Updated to v$(cat $VERSION_FILE)."
+}
+
+do_version() {
+  INSTALLED=$(installed_version)
+  LATEST=$(latest_version)
+
+  echo "claude-wd v$INSTALLED (installed)"
+
+  if [ "$INSTALLED" = "$LATEST" ]; then
+    echo "You are up to date."
+  elif [ "$LATEST" = "unknown" ]; then
+    echo "Could not reach GitHub to check for updates."
+  else
+    echo "claude-wd v$LATEST available — run: claude-wd --update"
+  fi
+}
+
+case "${1:-}" in
+  --update)  do_update ;;
+  --version) do_version ;;
+  *)
+    echo "Usage:"
+    echo "  claude-wd --version   Check installed version and whether an update is available"
+    echo "  claude-wd --update    Pull latest config files from GitHub"
+    ;;
+esac
